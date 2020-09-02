@@ -4,6 +4,23 @@ String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
+/**
+ * Install the service worker
+ */
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, err => {
+            console.error('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+
+window.addEventListener('appinstalled', (e) => {
+    console.log('A2HS installed');
+});
+
 Vue.component('card', {
     props: ['kana', 'kanaType'],
 
@@ -26,9 +43,10 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
         data: {
             sidebarOpened: false,
             search: '',
+            standalone: window.matchMedia('(display-mode: standalone)').matches,
             config: {
                 get theme() {
-                    return localStorage.getItem('theme') || 'light';
+                    return localStorage.getItem('theme') ?? 'system';
                 },
 
                 set theme(val) {
@@ -37,7 +55,7 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 },
 
                 get kanaType() {
-                    return localStorage.getItem('kanaType') || 'hiragana';
+                    return localStorage.getItem('kanaType') ?? 'hiragana';
                 },
 
                 set kanaType(val) {
@@ -46,19 +64,38 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 },
 
                 get useMarks() {
-                    return localStorage.getItem('useMarks') === 'true' || false;
+                    return localStorage.getItem('useMarks') === 'true' ?? false;
                 },
 
                 set useMarks(val) {
                     localStorage.setItem('useMarks', val);
-                }
+                },
+
+                get showYouon() {
+                    return localStorage.getItem('showYouon') === 'true' ?? true;
+                },
+
+                set showYouon(val) {
+                    localStorage.setItem('showYouon', val);
+                },
+
+                get showSokuon() {
+                    return localStorage.getItem('showSokuon') === 'true' ?? true;
+                },
+
+                set showSokuon(val) {
+                    localStorage.setItem('showSokuon', val);
+                },
             },
             kana: {},
         },
         computed: {
             kanasFiltered: function () {
-                return [...kanaTable.seion, ...kanaTable.youon, ...kanaTable.sokuon]
-                    .filter(kana => kana.roumaji.includes(this.search.toLowerCase()));
+                const kanas = [...kanaTable.seion];
+                this.config.showYouon && kanas.push(...kanaTable.youon);
+                this.config.showSokuon && kanas.push(...kanaTable.sokuon);
+
+                return kanas.filter(kana => kana.roumaji.includes(this.search.toLowerCase()));
             },
         },
         methods: {
@@ -72,7 +109,7 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
 });
 
 function isVowel(char) {
-    return ['a', 'e', 'i', 'o', 'u'].includes(char);
+    return ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase());
 }
 
 function roumaji2kana(str) {
@@ -94,6 +131,11 @@ function roumaji2kana(str) {
                 kana += 'ー';
                 toFind = toFind.slice(1);
                 continue;
+            }
+
+            if (app.config.kanaType === 'hiragana' && word === 'wa') {
+                kana += 'は';
+                break;
             }
 
             if (app.config.useMarks) {
@@ -118,5 +160,5 @@ function roumaji2kana(str) {
         return kana;
     });
 
-    return kanas.join(' ');
+    return kanas.join('');
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" theme="light">
+<html lang="pt-br" theme="system">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/themes/light.css"/>
     <link rel="stylesheet" href="css/themes/dark.css"/>
+
+    <link rel="manifest" href="manifest.json"/>
+
+    <link rel="icon" href="favicon.png"/>
 </head>
 
 <body>
@@ -37,7 +41,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="card-info">
-                        <p class="kana">{{ kana.hiragana }}</p>
+                        <p class="kana">{{ kana[config.kanaType] }}</p>
                         <p class="roumaji">{{ kana.roumaji }}</p>
                         <p class="ipa">/{{ kana.ipa }}/</p>
                         <div v-if="kana.combination" class="combination-div">
@@ -58,6 +62,7 @@
                 <span class="description">Theme</span>
                 <span class="config combo">
                     <select id="theme_toggle" v-model="config.theme" class="custom-select custom-select-sm">
+                        <option value="system">System</option>
                         <option value="light">Light</option>
                         <option value="dark">Dark</option>
                     </select>
@@ -82,6 +87,30 @@
                     <label class="custom-control-label" for="mark_toggle">
                         <span v-if="config.useMarks === false">Off</span>
                         <span v-if="config.useMarks === true">On</span>
+                    </label>
+                </span>
+            </li>
+
+            <li>
+                <span class="description">Show Youon</span>
+                <span class="config custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="youon_toggle" v-model="config.showYouon">
+
+                    <label class="custom-control-label" for="youon_toggle">
+                        <span v-if="config.showYouon === false">Off</span>
+                        <span v-if="config.showYouon === true">On</span>
+                    </label>
+                </span>
+            </li>
+
+            <li>
+                <span class="description">Show Sokuon</span>
+                <span class="config custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="sokuon_toggle" v-model="config.showSokuon">
+
+                    <label class="custom-control-label" for="sokuon_toggle">
+                        <span v-if="config.showSokuon === false">Off</span>
+                        <span v-if="config.showSokuon === true">On</span>
                     </label>
                 </span>
             </li>
@@ -134,5 +163,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="sw.js"></script>
 </body>
 </html>
