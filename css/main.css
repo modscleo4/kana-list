@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 
 * {
     box-sizing: border-box;
@@ -28,11 +29,15 @@ a:hover {
 }
 
 .modal-content {
-    background-color: var(--background-color);
+    background-color: var(--even);
 }
 
 .modal-content .close {
     color: var(--text-color) !important;
+}
+
+.modal-header {
+    border-color: var(--odd);
 }
 
 .custom-select {
@@ -46,10 +51,9 @@ a:hover {
     background-color: var(--input-background-color);
 }
 
-
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-button {
@@ -63,11 +67,11 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #303030;
+    background: #262626;
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: #212121;
+    background: #161616;
 }
 
 ::-webkit-scrollbar-track {
@@ -76,11 +80,11 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track:hover {
-    background: #a1a1a1;
+    background: #b5b5b5;
 }
 
 ::-webkit-scrollbar-track:active {
-    background: #808080;
+    background: #b5b5b5;
 }
 
 ::-webkit-scrollbar-corner {
@@ -125,6 +129,7 @@ a:hover {
 }
 
 .sidebar ul li {
+    border-bottom: 1px solid var(--even);
     margin: 0;
     padding: 16px;
     width: 100%;
@@ -134,19 +139,12 @@ a:hover {
     align-items: center;
 }
 
-.sidebar ul li:nth-child(odd) {
-    background-color: var(--odd);
-}
-
-.sidebar ul li:nth-child(even) {
-    background-color: var(--even);
-}
-
 .sidebar ul li .description {
     margin: 0;
 }
 
 .sidebar ul li .config {
+    user-select: none;
     justify-self: right;
 }
 
@@ -214,9 +212,22 @@ header {
     color: var(--link-color-hover);
 }
 
-article {
+#main {
+    visibility: hidden;
     margin-top: 64px;
     min-height: calc(100vh - 72px - 114px - 24px);
+}
+
+#main.loaded {
+    visibility: unset;
+}
+
+.translation {
+    text-align: center;
+}
+
+.translation h1 {
+    font-family: 'Yu Gothic', 'Noto Sans JP', sans-serif;
 }
 
 .cards {
@@ -240,12 +251,18 @@ article {
 
 .cards .card .kana {
     font-size: 8em;
+    font-family: 'Yu Gothic', 'Noto Sans JP', sans-serif;
     margin: 0 auto;
 }
 
-.cards .card.combination .kana {
+.cards .card.l2 .kana {
     font-size: 6em;
     padding: 0.25em 0;
+}
+
+.cards .card.l3 .kana {
+    font-size: 4em;
+    padding: 0.5em 0;
 }
 
 .cards .card .roumaji {
@@ -268,6 +285,7 @@ article {
 
 .card-info .kana {
     font-size: 8em;
+    font-family: 'Yu Gothic', 'Noto Sans JP', sans-serif;
 }
 
 .card-info .roumaji {
@@ -280,7 +298,7 @@ article {
 }
 
 .card-info .combination-div {
-
+    font-family: 'Yu Gothic', 'Noto Sans JP', sans-serif;
 }
 
 .card-info .combination > *:not(:first-child)::before {

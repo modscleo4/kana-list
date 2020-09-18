@@ -1,5 +1,6 @@
 {
-  "seion": [
+  "$schema": "https://raw.githubusercontent.com/modscleo4/kana-list/master/js/kana-list.schema.json",
+  "gojuuon": [
     {
       "hiragana": "あ",
       "katakana": "ア",
@@ -1045,6 +1046,344 @@
       "katakana": "ッポ",
       "roumaji": "ppo",
       "ipa": ":po"
+    }
+  ],
+  "tokushuon": [
+    {
+      "hiragana": "きぇ",
+      "katakana": "キェ",
+      "roumaji": "kie",
+      "ipa": "ke"
+    },
+    {
+      "hiragana": "くぁ",
+      "katakana": "クヮ",
+      "roumaji": "kwa",
+      "ipa": "ka"
+    },
+    {
+      "hiragana": "くぃ",
+      "katakana": "クィ",
+      "roumaji": "kwi",
+      "ipa": "ki"
+    },
+    {
+      "hiragana": "くぇ",
+      "katakana": "クェ",
+      "roumaji": "kwe",
+      "ipa": "ke"
+    },
+    {
+      "hiragana": "くぉ",
+      "katakana": "クォ",
+      "roumaji": "kwo",
+      "ipa": "ko"
+    },
+    {
+      "hiragana": "ぎぇ",
+      "katakana": "ギェ",
+      "roumaji": "gye",
+      "ipa": "Ɡʲe"
+    },
+    {
+      "hiragana": "ぐぁ",
+      "katakana": "クヮ",
+      "roumaji": "gwa",
+      "ipa": "Ɡʷa"
+    },
+    {
+      "hiragana": "ぐぃ",
+      "katakana": "クィ",
+      "roumaji": "gwi",
+      "ipa": "Ɡʷi"
+    },
+    {
+      "hiragana": "ぐぇ",
+      "katakana": "クェ",
+      "roumaji": "gwe",
+      "ipa": "Ɡʷe"
+    },
+    {
+      "hiragana": "ぐぉ",
+      "katakana": "クォ",
+      "roumaji": "gwo",
+      "ipa": "Ɡʷo"
+    },
+    {
+      "hiragana": "すぃ",
+      "katakana": "スィ",
+      "roumaji": "si",
+      "ipa": "si"
+    },
+    {
+      "hiragana": "しぃ",
+      "katakana": "シェ",
+      "roumaji": "she",
+      "ipa": "ɕe"
+    },
+    {
+      "hiragana": "ずぃ",
+      "katakana": "ズィ",
+      "roumaji": "zi",
+      "ipa": "Zi"
+    },
+    {
+      "hiragana": "しぃ",
+      "katakana": "ジェ",
+      "roumaji": "je",
+      "ipa": "D͡ʑe"
+    },
+    {
+      "hiragana": "てぃ",
+      "katakana": "ティ",
+      "roumaji": "ti",
+      "ipa": "ti"
+    },
+    {
+      "hiragana": "とぅ",
+      "katakana": "トゥ",
+      "roumaji": "tu",
+      "ipa": "tɯ"
+    },
+    {
+      "hiragana": "とゅ",
+      "katakana": "テュ",
+      "roumaji": "tyu",
+      "ipa": "tʲɯ"
+    },
+    {
+      "hiragana": "ちぇ",
+      "katakana": "チェ",
+      "roumaji": "che",
+      "ipa": "t͡ɕe"
+    },
+    {
+      "hiragana": "つぁ",
+      "katakana": "ツァ",
+      "roumaji": "tsa",
+      "ipa": "t͡sa"
+    },
+    {
+      "hiragana": "つぃ",
+      "katakana": "ツィ",
+      "roumaji": "tsi",
+      "ipa": "t͡si"
+    },
+    {
+      "hiragana": "つぇ",
+      "katakana": "ツェ",
+      "roumaji": "tse",
+      "ipa": "t͡se"
+    },
+    {
+      "hiragana": "ツォ",
+      "katakana": "チェ",
+      "roumaji": "tso",
+      "ipa": "t͡so"
+    },
+    {
+      "hiragana": "でぃ",
+      "katakana": "ディ",
+      "roumaji": "di",
+      "ipa": "di"
+    },
+    {
+      "hiragana": "どぅ",
+      "katakana": "ドゥ",
+      "roumaji": "du",
+      "ipa": "dɯ"
+    },
+    {
+      "hiragana": "でゅ",
+      "katakana": "デュ",
+      "roumaji": "dyu",
+      "ipa": "dʲɯ"
+    },
+    {
+      "hiragana": "にぇ",
+      "katakana": "ニェ",
+      "roumaji": "nye",
+      "ipa": "Ɲe"
+    },
+    {
+      "hiragana": "ほぅ",
+      "katakana": "ホゥ",
+      "roumaji": "hu",
+      "ipa": "hɯ"
+    },
+    {
+      "hiragana": "ひぇ",
+      "katakana": "ヒェ",
+      "roumaji": "hye",
+      "ipa": "çe"
+    },
+    {
+      "hiragana": "ふぁ",
+      "katakana": "ファ",
+      "roumaji": "fa",
+      "ipa": "ɸa"
+    },
+    {
+      "hiragana": "ふぃ",
+      "katakana": "フィ",
+      "roumaji": "fi",
+      "ipa": "ɸi"
+    },
+    {
+      "hiragana": "ふぇ",
+      "katakana": "フェ",
+      "roumaji": "fe",
+      "ipa": "ɸe"
+    },
+    {
+      "hiragana": "ふぉ",
+      "katakana": "フォ",
+      "roumaji": "fo",
+      "ipa": "ɸo"
+    },
+    {
+      "hiragana": "ふゃ",
+      "katakana": "フャ",
+      "roumaji": "fya",
+      "ipa": "ɸʲa"
+    },
+    {
+      "hiragana": "ふゅ",
+      "katakana": "フュ",
+      "roumaji": "fyu",
+      "ipa": "ɸʲɯ"
+    },
+    {
+      "hiragana": "ふぃぇ",
+      "katakana": "フィェ",
+      "roumaji": "fye",
+      "ipa": "ɸʲe"
+    },
+    {
+      "hiragana": "ふょ",
+      "katakana": "フョ",
+      "roumaji": "fyo",
+      "ipa": "ɸʲo"
+    },
+    {
+      "hiragana": "びぇ",
+      "katakana": "ビェ",
+      "roumaji": "bye",
+      "ipa": "be"
+    },
+    {
+      "hiragana": "ぴぇ",
+      "katakana": "ピェ",
+      "roumaji": "pye",
+      "ipa": "pe"
+    },
+    {
+      "hiragana": "みぇ",
+      "katakana": "ミェ",
+      "roumaji": "mye",
+      "ipa": "me"
+    },
+    {
+      "hiragana": "いぃ",
+      "katakana": "イィ",
+      "roumaji": "yi",
+      "ipa": "ji"
+    },
+    {
+      "hiragana": "いぇ",
+      "katakana": "イェ",
+      "roumaji": "ye",
+      "ipa": "je"
+    },
+    {
+      "hiragana": "りぇ",
+      "katakana": "リェ",
+      "roumaji": "rye",
+      "ipa": "ɾʲe"
+    },
+    {
+      "hiragana": "わぃ",
+      "katakana": "ウィ",
+      "roumaji": "wi",
+      "ipa": "ɰi"
+    },
+    {
+      "hiragana": "わぅ",
+      "katakana": "ウゥ",
+      "roumaji": "wu",
+      "ipa": "ɰɯ"
+    },
+    {
+      "hiragana": "わぇ",
+      "katakana": "ウェ",
+      "roumaji": "we",
+      "ipa": "ɰe"
+    },
+    {
+      "hiragana": "わぉ",
+      "katakana": "ウォ",
+      "roumaji": "wo",
+      "ipa": "ɰo"
+    },
+    {
+      "hiragana": "わゅ",
+      "katakana": "ウュ",
+      "roumaji": "wyu",
+      "ipa": "ɰʲɯ"
+    },
+    {
+      "hiragana": "ゔぁ",
+      "katakana": "ヴァ",
+      "roumaji": "va",
+      "ipa": "va"
+    },
+    {
+      "hiragana": "ゔぃ",
+      "katakana": "ヴィ",
+      "roumaji": "vi",
+      "ipa": "vi"
+    },
+    {
+      "hiragana": "ゔ",
+      "katakana": "ヴ",
+      "roumaji": "vu",
+      "ipa": "vi"
+    },
+    {
+      "hiragana": "ゔぇ",
+      "katakana": "ヴェ",
+      "roumaji": "ve",
+      "ipa": "ve"
+    },
+    {
+      "hiragana": "ゔぉ",
+      "katakana": "ヴォ",
+      "roumaji": "vo",
+      "ipa": "vo"
+    },
+    {
+      "hiragana": "ゔゃ",
+      "katakana": "ヴャ",
+      "roumaji": "vya",
+      "ipa": "vʲa"
+    },
+    {
+      "hiragana": "ゔゅ",
+      "katakana": "ヴュ",
+      "roumaji": "vyu",
+      "ipa": "vʲɯ"
+    },
+    {
+      "hiragana": "ゔぃぇ",
+      "katakana": "ヴィェ",
+      "roumaji": "vye",
+      "ipa": "vʲe"
+    },
+    {
+      "hiragana": "ゔょ",
+      "katakana": "ヴョ",
+      "roumaji": "vyo",
+      "ipa": "vʲo"
     }
   ]
 }

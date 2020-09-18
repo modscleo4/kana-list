@@ -17,24 +17,14 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-window.addEventListener('appinstalled', (e) => {
+window.addEventListener('appinstalled', () => {
     console.log('A2HS installed');
-});
-
-Vue.component('card', {
-    props: ['kana', 'kanaType'],
-
-    template: `
-<div class="card" :class="{'combination': kana[kanaType].length > 1}" data-toggle="modal" data-target="#kanaModal">
-    <span class="kana">{{ kana[kanaType] }}</span>
-    <span class="roumaji">{{ kana.roumaji }}</span>
-</div>`,
 });
 
 let app;
 
 /**
- * @type {{seion: {hiragana: String, roumaji: String, ipa: String, combination: String[]?}[], youon: {hiragana: String, roumaji: String, ipa: String}[], sokuon: {hiragana: String, roumaji: String, ipa: String}[]}}
+ * @type {{gojuuon: {hiragana: String, katakana: String, roumaji: String, ipa: String, combination: String[]?}[], youon: {hiragana: String, katakana: String, roumaji: String, ipa: String}[], sokuon: {hiragana: String, katakana: String, roumaji: String, ipa: String}[], tokushuon: {hiragana: String, katakana: String, roumaji: String, ipa: String}[]}}
  */
 let kanaTable = {};
 fetch('./js/kana-list.json').then(response => response.json()).then(data => kanaTable = data).then(() => {
@@ -64,7 +54,7 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 },
 
                 get useMarks() {
-                    return localStorage.getItem('useMarks') === 'true' ?? false;
+                    return (localStorage.getItem('useMarks') ?? true) === 'true';
                 },
 
                 set useMarks(val) {
@@ -72,7 +62,7 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 },
 
                 get showYouon() {
-                    return localStorage.getItem('showYouon') === 'true' ?? true;
+                    return (localStorage.getItem('showYouon') ?? false) === 'true';
                 },
 
                 set showYouon(val) {
@@ -80,28 +70,41 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 },
 
                 get showSokuon() {
-                    return localStorage.getItem('showSokuon') === 'true' ?? true;
+                    return (localStorage.getItem('showSokuon') ?? false) === 'true';
                 },
 
                 set showSokuon(val) {
                     localStorage.setItem('showSokuon', val);
                 },
+
+                get showTokushuon() {
+                    return (localStorage.getItem('showTokushuon') ?? false) === 'true';
+                },
+
+                set showTokushuon(val) {
+                    localStorage.setItem('showTokushuon', val);
+                },
             },
-            kana: {},
+            popupKana: {
+                hiragana: null,
+                katakana: null,
+                roumaji: null,
+                ipa: null,
+                combination: [],
+            },
         },
         computed: {
             kanasFiltered: function () {
-                const kanas = [...kanaTable.seion];
+                const kanas = [...kanaTable.gojuuon];
                 this.config.showYouon && kanas.push(...kanaTable.youon);
                 this.config.showSokuon && kanas.push(...kanaTable.sokuon);
+                this.config.showTokushuon && kanas.push(...kanaTable.tokushuon);
 
                 return kanas.filter(kana => kana.roumaji.includes(this.search.toLowerCase()));
             },
         },
         methods: {
-            popup: function (kana) {
-                this.kana = kana;
-            },
+
         }
     });
 
@@ -114,7 +117,8 @@ function isVowel(char) {
 
 function roumaji2kana(str) {
     const words = str.toLowerCase().split(' ');
-    const kanasTable = [...kanaTable.seion, ...kanaTable.youon, ...kanaTable.sokuon];
+    const punctuation = [{hiragana: '。', katakana: '。', roumaji: '.'}, {hiragana: '、', katakana: '、', roumaji: ','}];
+    const kanasTable = [...punctuation, ...kanaTable.gojuuon, ...kanaTable.youon, ...kanaTable.sokuon, ...kanaTable.tokushuon];
     const kanas = words.map(word => {
         let kana = '';
         let lastKana = null;
@@ -160,5 +164,5 @@ function roumaji2kana(str) {
         return kana;
     });
 
-    return kanas.join('');
+    return kanas.join(app.config.kanaType === 'hiragana' ? '' : '・');
 }

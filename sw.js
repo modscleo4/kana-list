@@ -36,6 +36,7 @@ const urlsToCache = [
     './fonts/fontawesome-webfont.woff',
     './fonts/fontawesome-webfont.woff2',
     './js/theme.js',
+    './js/debug.js',
     './js/main.js',
     './js/kana-list.json',
 ];
