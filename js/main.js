@@ -28,9 +28,8 @@ let app;
  */
 let kanaTable = {};
 fetch('./js/kana-list.json').then(response => response.json()).then(data => kanaTable = data).then(() => {
-    app = new Vue({
-        el: '#app',
-        data: {
+    app = Vue.createApp({
+        data: () => ({
             sidebarOpened: false,
             search: '',
             standalone: window.matchMedia('(display-mode: standalone)').matches,
@@ -92,7 +91,8 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 ipa: null,
                 combination: [],
             },
-        },
+        }),
+
         computed: {
             kanasFiltered: function () {
                 const kanas = [...kanaTable.gojuuon];
@@ -103,10 +103,11 @@ fetch('./js/kana-list.json').then(response => response.json()).then(data => kana
                 return kanas.filter(kana => kana.roumaji.includes(this.search.toLowerCase()));
             },
         },
-        methods: {
 
-        }
-    });
+        methods: {
+            roumaji2kana: str => roumaji2kana(str),
+        },
+    }).mount('#app');
 
     document.title = roumaji2kana(app.config.kanaType);
 });

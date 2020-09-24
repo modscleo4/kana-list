@@ -63,7 +63,7 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #3b3b3b;
-    border: 0 none #ffffff;
+    border: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -76,15 +76,7 @@ a:hover {
 
 ::-webkit-scrollbar-track {
     background: #b5b5b5;
-    border: 0 none #ffffff;
-}
-
-::-webkit-scrollbar-track:hover {
-    background: #b5b5b5;
-}
-
-::-webkit-scrollbar-track:active {
-    background: #b5b5b5;
+    border: none;
 }
 
 ::-webkit-scrollbar-corner {
