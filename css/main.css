@@ -62,20 +62,20 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3b3b3b;
+    background-color: var(--scrollbar-thumb);
     border: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #262626;
+    background-color: var(--scrollbar-thumb-hover);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: #161616;
+    background-color: var(--scrollbar-thumb-active);
 }
 
 ::-webkit-scrollbar-track {
-    background: #b5b5b5;
+    background-color: var(--scrollbar-track);
     border: none;
 }
 

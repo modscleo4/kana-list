@@ -2,181 +2,202 @@
 <html lang="en" theme="system">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <meta name="description" content="A website with a Kana (Hiragana and Katakana) list."/>
-    <meta name="keywords" content="html, html5, css, css3, css-grid, js, json, vue, vuejs, hiragana, katakana"/>
-    <meta name="robots" content="index"/>
-    <meta name="author" content="Modscleo4"/>
+    <meta name="description" content="A website with a Kana (Hiragana and Katakana) list." />
+    <meta name="keywords" content="html, html5, css, css3, css-grid, js, json, vue, vuejs, hiragana, katakana" />
+    <meta name="robots" content="index" />
+    <meta name="author" content="Modscleo4" />
 
     <title>ひらがな</title>
 
-    <!-- Bootstrap 4.5.2 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap 4.5.3 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
 
     <!-- Font Awesome 4.7.0 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <link rel="stylesheet" href="css/main.css"/>
-    <link rel="stylesheet" href="css/themes/light.css"/>
-    <link rel="stylesheet" href="css/themes/dark.css"/>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/themes/light.css" />
+    <link rel="stylesheet" href="css/themes/dark.css" />
 
-    <link rel="manifest" href="manifest.json"/>
+    <link rel="manifest" href="manifest.json" />
 
-    <link rel="icon" href="favicon.png"/>
+    <link rel="icon" href="favicon.png" />
 </head>
 
 <body>
-<script type="text/javascript" src="js/theme.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78177802-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<div id="app">
-    <div class="modal fade" id="kanaModal" tabindex="-1" role="dialog" aria-labelledby="kanaModal"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title"></h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="card-info">
-                        <p class="kana">{{ popupKana[config.kanaType] }}</p>
-                        <p class="roumaji">{{ popupKana.roumaji }}</p>
-                        <p class="ipa">/{{ popupKana.ipa }}/</p>
-                        <div v-if="popupKana.combination" class="combination-div">
-                            <p>Combination of:</p>
-                            <p class="combination">
-                                <span v-for="c_kana in popupKana.combination[config.kanaType]">{{ c_kana }}</span>
-                            </p>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-78177802-2');
+    </script>
+
+    <script type="text/javascript" src="js/theme.js"></script>
+
+    <div id="app">
+        <div class="modal fade" id="kanaModal" tabindex="-1" role="dialog" aria-labelledby="kanaModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title"></h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-info">
+                            <p class="kana">{{ popupKana[config.kanaType] }}</p>
+                            <p class="roumaji">{{ popupKana.roumaji }}</p>
+                            <p class="ipa">/{{ popupKana.ipa }}/</p>
+                            <div v-if="popupKana.combination" class="combination-div">
+                                <p>Combination of:</p>
+                                <p class="combination">
+                                    <span v-for="c_kana in popupKana.combination[config.kanaType]">{{ c_kana }}</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <nav id="settings" class="sidebar sidebar-right" :class="{'open': sidebarOpened}">
+            <ul>
+                <li>
+                    <span class="description"><label for="theme_toggle">Theme</label></span>
+                    <span class="config combo">
+                        <select id="theme_toggle" v-model="config.theme" class="custom-select custom-select-sm">
+                            <option value="system">System</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="description"><label for="kana_toggle">Kana Type</label></span>
+                    <span class="config combo">
+                        <select id="kana_toggle" v-model="config.kanaType" class="custom-select custom-select-sm">
+                            <option value="hiragana">Hiragana</option>
+                            <option value="katakana">Katakana</option>
+                        </select>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="description">Use Marks</span>
+                    <span class="config custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="mark_toggle" v-model="config.useMarks">
+
+                        <label class="custom-control-label" for="mark_toggle">
+                            <span v-if="config.useMarks === false">Off</span>
+                            <span v-if="config.useMarks === true">On</span>
+                        </label>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="description">Show Youon</span>
+                    <span class="config custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="youon_toggle"
+                            v-model="config.showYouon">
+
+                        <label class="custom-control-label" for="youon_toggle">
+                            <span v-if="config.showYouon === false">Off</span>
+                            <span v-if="config.showYouon === true">On</span>
+                        </label>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="description">Show Sokuon</span>
+                    <span class="config custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="sokuon_toggle"
+                            v-model="config.showSokuon">
+
+                        <label class="custom-control-label" for="sokuon_toggle">
+                            <span v-if="config.showSokuon === false">Off</span>
+                            <span v-if="config.showSokuon === true">On</span>
+                        </label>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="description">Show Tokushuon</span>
+                    <span class="config custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="tokushuon_toggle"
+                            v-model="config.showTokushuon">
+
+                        <label class="custom-control-label" for="tokushuon_toggle">
+                            <span v-if="config.showTokushuon === false">Off</span>
+                            <span v-if="config.showTokushuon === true">On</span>
+                        </label>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+
+        <header>
+            <div></div>
+
+            <div class="search">
+                <input type="text" name="search" placeholder="a, ha, ri, shi" v-model="search" />
+            </div>
+
+            <div class="settings-button">
+                <button class="btn" type="button" data-toggle="modal" @click="sidebarOpened = !sidebarOpened">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <div v-if="sidebarOpened" class="sidebar-backdrop" @click="sidebarOpened = !sidebarOpened"></div>
+
+        <section id="main" :class="{'loaded': true}">
+            <div class="translation" v-if="search !== ''">
+                <h3>"{{ search }}" in {{ config.kanaType.capitalize() }}: </h3>
+                <h1 class="translated-kana">{{ roumaji2kana(search) }}</h1>
+
+                <hr />
+            </div>
+
+            <div class="cards">
+                <div v-for="kana in kanasFiltered" class="card" :class="`l${kana[config.kanaType].length}`"
+                    @click="popupKana = kana" data-toggle="modal" data-target="#kanaModal">
+                    <span class="kana">{{ kana[config.kanaType] }}</span>
+                    <span class="roumaji">{{ kana.roumaji }}</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <hr />
+            <p>© 2020 Modscleo4. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </footer>
     </div>
 
-    <nav id="settings" class="sidebar sidebar-right" :class="{'open': sidebarOpened}">
-        <ul>
-            <li>
-                <span class="description"><label for="theme_toggle">Theme</label></span>
-                <span class="config combo">
-                    <select id="theme_toggle" v-model="config.theme" class="custom-select custom-select-sm">
-                        <option value="system">System</option>
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-                </span>
-            </li>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
 
-            <li>
-                <span class="description"><label for="kana_toggle">Kana Type</label></span>
-                <span class="config combo">
-                    <select id="kana_toggle" v-model="config.kanaType" class="custom-select custom-select-sm">
-                        <option value="hiragana">Hiragana</option>
-                        <option value="katakana">Katakana</option>
-                    </select>
-                </span>
-            </li>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.0/vue.global.prod.js"></script>
 
-            <li>
-                <span class="description">Use Marks</span>
-                <span class="config custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="mark_toggle" v-model="config.useMarks">
-
-                    <label class="custom-control-label" for="mark_toggle">
-                        <span v-if="config.useMarks === false">Off</span>
-                        <span v-if="config.useMarks === true">On</span>
-                    </label>
-                </span>
-            </li>
-
-            <li>
-                <span class="description">Show Youon</span>
-                <span class="config custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="youon_toggle" v-model="config.showYouon">
-
-                    <label class="custom-control-label" for="youon_toggle">
-                        <span v-if="config.showYouon === false">Off</span>
-                        <span v-if="config.showYouon === true">On</span>
-                    </label>
-                </span>
-            </li>
-
-            <li>
-                <span class="description">Show Sokuon</span>
-                <span class="config custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="sokuon_toggle" v-model="config.showSokuon">
-
-                    <label class="custom-control-label" for="sokuon_toggle">
-                        <span v-if="config.showSokuon === false">Off</span>
-                        <span v-if="config.showSokuon === true">On</span>
-                    </label>
-                </span>
-            </li>
-
-            <li>
-                <span class="description">Show Tokushuon</span>
-                <span class="config custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="tokushuon_toggle" v-model="config.showTokushuon">
-
-                    <label class="custom-control-label" for="tokushuon_toggle">
-                        <span v-if="config.showTokushuon === false">Off</span>
-                        <span v-if="config.showTokushuon === true">On</span>
-                    </label>
-                </span>
-            </li>
-        </ul>
-    </nav>
-
-    <header>
-        <div></div>
-
-        <div class="search">
-            <input type="text" name="search" placeholder="a, ha, ri, shi" v-model="search"/>
-        </div>
-
-        <div class="settings-button">
-            <button class="btn" type="button" data-toggle="modal" @click="sidebarOpened = !sidebarOpened">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
-    <div v-if="sidebarOpened" class="sidebar-backdrop" @click="sidebarOpened = !sidebarOpened"></div>
-
-    <section id="main" :class="{'loaded': true}">
-        <div class="translation" v-if="search !== ''">
-            <h3>"{{ search }}" in {{ config.kanaType.capitalize() }}: </h3>
-            <h1 class="translated-kana">{{ roumaji2kana(search) }}</h1>
-
-            <hr/>
-        </div>
-
-        <div class="cards">
-            <div v-for="kana in kanasFiltered" class="card" :class="`l${kana[config.kanaType].length}`" @click="popupKana = kana" data-toggle="modal" data-target="#kanaModal">
-                <span class="kana">{{ kana[config.kanaType] }}</span>
-                <span class="roumaji">{{ kana.roumaji }}</span>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <hr/>
-        <p>© 2020 Modscleo4. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.</p>
-    </footer>
-</div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.0/vue.global.prod.js"></script>
-
-<script type="text/javascript" src="js/debug.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="sw.js"></script>
+    <script type="text/javascript" src="js/debug.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="text/javascript" src="sw.js"></script>
 </body>
 </html>

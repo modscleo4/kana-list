@@ -32,7 +32,7 @@
         "combination": {
           "type": "object",
           "description": "Combination of what symbols",
-          "default": [],
+          "default": {},
           "properties": {
             "hiragana": {
               "items": {
@@ -96,5 +96,9 @@
     "tokushuon"
   ],
   "default": {
+    "gojuuon": [],
+    "youon": [],
+    "sokuon": [],
+    "tokushuon": []
   }
 }
