@@ -408,7 +408,7 @@
     {
       "hiragana": "ぜ",
       "katakana": "ゼ",
-      "roumaji": "dze",
+      "roumaji": "ze",
       "ipa": "ze",
       "combination": {
         "hiragana": [
@@ -424,7 +424,7 @@
     {
       "hiragana": "ぞ",
       "katakana": "ゾ",
-      "roumaji": "dzo",
+      "roumaji": "zo",
       "ipa": "zo",
       "combination": {
         "hiragana": [
@@ -966,7 +966,7 @@
     {
       "hiragana": "っち",
       "katakana": "ッチ",
-      "roumaji": "tchi",
+      "roumaji": "cchi",
       "ipa": ":tɕi"
     },
     {
@@ -1083,36 +1083,36 @@
       "hiragana": "ぎぇ",
       "katakana": "ギェ",
       "roumaji": "gye",
-      "ipa": "Ɡʲe"
+      "ipa": "gʲe"
     },
     {
       "hiragana": "ぐぁ",
       "katakana": "クヮ",
       "roumaji": "gwa",
-      "ipa": "Ɡʷa"
+      "ipa": "ɡɰᵝa"
     },
     {
       "hiragana": "ぐぃ",
       "katakana": "クィ",
       "roumaji": "gwi",
-      "ipa": "Ɡʷi"
+      "ipa": "ɡɰᵝi"
     },
     {
       "hiragana": "ぐぇ",
       "katakana": "クェ",
       "roumaji": "gwe",
-      "ipa": "Ɡʷe"
+      "ipa": "ɡɰᵝe"
     },
     {
       "hiragana": "ぐぉ",
       "katakana": "クォ",
       "roumaji": "gwo",
-      "ipa": "Ɡʷo"
+      "ipa": "ɡɰᵝo"
     },
     {
       "hiragana": "すぃ",
       "katakana": "スィ",
-      "roumaji": "si",
+      "roumaji": "swi",
       "ipa": "si"
     },
     {
@@ -1124,8 +1124,8 @@
     {
       "hiragana": "ずぃ",
       "katakana": "ズィ",
-      "roumaji": "zi",
-      "ipa": "Zi"
+      "roumaji": "zwi",
+      "ipa": "dzʲi"
     },
     {
       "hiragana": "しぃ",
@@ -1136,13 +1136,13 @@
     {
       "hiragana": "てぃ",
       "katakana": "ティ",
-      "roumaji": "ti",
+      "roumaji": "twi",
       "ipa": "ti"
     },
     {
       "hiragana": "とぅ",
       "katakana": "トゥ",
-      "roumaji": "tu",
+      "roumaji": "twu",
       "ipa": "tɯ"
     },
     {
@@ -1176,21 +1176,21 @@
       "ipa": "t͡se"
     },
     {
-      "hiragana": "ツォ",
-      "katakana": "チェ",
+      "hiragana": "つぉ",
+      "katakana": "ツォ",
       "roumaji": "tso",
       "ipa": "t͡so"
     },
     {
-      "hiragana": "でぃ",
-      "katakana": "ディ",
-      "roumaji": "di",
-      "ipa": "di"
+      "hiragana": "どぃ",
+      "katakana": "ドィ",
+      "roumaji": "dwi",
+      "ipa": "dɰᵝi"
     },
     {
       "hiragana": "どぅ",
       "katakana": "ドゥ",
-      "roumaji": "du",
+      "roumaji": "dwu",
       "ipa": "dɯ"
     },
     {
