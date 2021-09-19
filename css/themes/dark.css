@@ -26,6 +26,8 @@
     --scrollbar-thumb-hover: rgb(138, 138, 138);
     --scrollbar-thumb-active: rgb(165, 165, 165);
     --scrollbar-track: rgb(50, 50, 50);
+
+    --drop-shadow-color: rgb(16, 16, 16);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,5 +59,7 @@
         --scrollbar-thumb-hover: rgb(138, 138, 138);
         --scrollbar-thumb-active: rgb(165, 165, 165);
         --scrollbar-track: rgb(50, 50, 50);
+
+        --drop-shadow-color: rgb(16, 16, 16);
     }
 }
