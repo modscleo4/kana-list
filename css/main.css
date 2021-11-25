@@ -304,6 +304,36 @@ footer p {
     margin: 0;
 }
 
+.gojuuon-container {
+    display: flex;
+    justify-content: center;
+}
+
+table.gojuuon {
+    font-size: 2em;
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+
+table.gojuuon th {
+    text-align: center;
+}
+
+table.gojuuon td {
+    border-radius: 4px;
+    padding: 0.5em;
+}
+
+table.gojuuon .kana {
+    background-color: var(--card-color);
+}
+
+table.gojuuon .kana:hover {
+    cursor: pointer;
+    color: var(--text-color-hover);
+    filter: drop-shadow(0 0 4px var(--drop-shadow-color));
+}
+
 @media (max-width: 400px) {
     .sidebar.open {
         width: 100%;

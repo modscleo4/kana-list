@@ -1,6 +1,6 @@
 'use strict';
 
-import * as Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.esm-browser.prod.js';
+import * as Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.0/vue.esm-browser.prod.js';
 
 String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
